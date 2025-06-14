@@ -2,6 +2,19 @@ pipeline {
     agent any
     
     stages {
+        stage('Diagnostics') {
+            steps {
+                echo 'Current directory:'
+                sh 'pwd'
+                echo 'Directory contents:'
+                sh 'ls -la'
+                echo 'Maven wrapper exists?'
+                sh 'ls -la mvnw || echo "Maven wrapper not found"'
+                echo 'Git status:'
+                sh 'git status'
+            }
+        }
+        
         stage('Build') {
             steps {
                 echo 'Starting build stage...'
