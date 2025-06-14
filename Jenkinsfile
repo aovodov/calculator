@@ -5,7 +5,9 @@ pipeline {
         stage('Build') {
             steps {
                 dir('/workspace') {
+                    echo 'Starting build stage...'
                     sh 'mvn clean package'
+                    echo 'Build stage completed'
                 }
             }
         }
@@ -13,7 +15,9 @@ pipeline {
         stage('Test') {
             steps {
                 dir('/workspace') {
+                    echo 'Starting test stage...'
                     sh 'mvn test'
+                    echo 'Test stage completed'
                 }
             }
         }
@@ -22,7 +26,9 @@ pipeline {
     post {
         always {
             dir('/workspace') {
+                echo 'Publishing test results...'
                 junit '**/target/surefire-reports/*.xml'
+                echo 'Pipeline completed'
             }
         }
     }
