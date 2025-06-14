@@ -3,7 +3,7 @@ pipeline {
     
     environment {
         ALLURE_SERVER_ID = 'testops'      // ID сервера из настроек Jenkins
-        ALLURE_PROJECT_ID = '123'             // ID проекта в Allure TestOps
+        ALLURE_PROJECT_ID = '124'             // ID проекта в Allure TestOps
     }
 
     stages {
