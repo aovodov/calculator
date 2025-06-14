@@ -6,6 +6,8 @@ pipeline {
             steps {
                 dir('/workspace') {
                     echo 'Starting build stage...'
+                    sh 'pwd'
+                    sh 'ls -la'
                     sh './mvnw clean package'
                     echo 'Build stage completed'
                 }
