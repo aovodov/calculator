@@ -2,15 +2,20 @@ pipeline {
     agent any
     
     stages {
-        stage('Checkout') {
+        stage('Build') {
             steps {
-                checkout scm
+                sh './mvnw clean package'
             }
         }
-        stage('Hello') {
+        stage('Test') {
             steps {
-                sh 'echo "Hello from Jenkins!"'
+                sh './mvnw test'
             }
+        }
+    }
+    post {
+        always {
+            junit '**/target/surefire-reports/*.xml'
         }
     }
 } 
