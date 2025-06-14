@@ -17,38 +17,6 @@ pipeline {
                 echo 'Test stage completed'
             }
         }
-        
-        stage('Allure Report') {
-            steps {
-                echo 'Generating Allure report...'
-                allure([
-                    includeProperties: false,
-                    jdk: '',
-                    properties: [],
-                    reportBuildPolicy: 'ALWAYS',
-                    results: [[path: 'target/allure-results']]
-                ])
-            }
-        }
-        
-        stage('Allure TestOps') {
-            steps {
-                echo 'Publishing to Allure TestOps...'
-                allure([
-                    includeProperties: false,
-                    jdk: '',
-                    properties: [],
-                    reportBuildPolicy: 'ALWAYS',
-                    results: [[path: 'target/allure-results']],
-                    testops: [
-                        endpoint: 'http://host.docker.internal:8080',
-                        projectId: '124',
-                        launchName: 'Calculator Tests',
-                        launchTags: ['jenkins', 'calculator']
-                    ]
-                ])
-            }
-        }
     }
     
     post {
