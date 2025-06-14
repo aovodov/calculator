@@ -2,10 +2,9 @@ pipeline {
     agent any
     
     stages {
-        stage('Diagnostics') {
+        stage('Hello') {
             steps {
-                sh 'pwd'
-                sh 'ls -la'
+                sh 'echo "Hello from Jenkins!"'
             }
         }
     }
