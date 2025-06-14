@@ -42,7 +42,7 @@ pipeline {
                     results: [[path: 'target/allure-results']],
                     testops: [
                         endpoint: 'http://host.docker.internal:8080',
-                        projectId: 'your-project-id',
+                        projectId: '124',
                         launchName: 'Calculator Tests',
                         launchTags: ['jenkins', 'calculator']
                     ]
