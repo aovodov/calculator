@@ -41,7 +41,7 @@ pipeline {
                     reportBuildPolicy: 'ALWAYS',
                     results: [[path: 'target/allure-results']],
                     testops: [
-                        endpoint: 'https://localhost:8080',
+                        endpoint: 'http://host.docker.internal:8080',
                         projectId: 'your-project-id',
                         launchName: 'Calculator Tests',
                         launchTags: ['jenkins', 'calculator']
