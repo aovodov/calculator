@@ -2,36 +2,39 @@ pipeline {
     agent any
     
     stages {
+        stage('Diagnostics') {
+            steps {
+                echo 'Current directory:'
+                sh 'pwd'
+                echo 'Directory contents:'
+                sh 'ls -la'
+                echo 'Maven wrapper exists?'
+                sh 'ls -la mvnw || echo "Maven wrapper not found"'
+            }
+        }
+        
         stage('Build') {
             steps {
-                dir('/workspace') {
-                    echo 'Starting build stage...'
-                    sh 'pwd'
-                    sh 'ls -la'
-                    sh './mvnw clean package'
-                    echo 'Build stage completed'
-                }
+                echo 'Starting build stage...'
+                sh './mvnw clean package'
+                echo 'Build stage completed'
             }
         }
         
         stage('Test') {
             steps {
-                dir('/workspace') {
-                    echo 'Starting test stage...'
-                    sh './mvnw test'
-                    echo 'Test stage completed'
-                }
+                echo 'Starting test stage...'
+                sh './mvnw test'
+                echo 'Test stage completed'
             }
         }
     }
     
     post {
         always {
-            dir('/workspace') {
-                echo 'Publishing test results...'
-                junit '**/target/surefire-reports/*.xml'
-                echo 'Pipeline completed'
-            }
+            echo 'Publishing test results...'
+            junit '**/target/surefire-reports/*.xml'
+            echo 'Pipeline completed'
         }
     }
 } 
