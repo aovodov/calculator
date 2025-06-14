@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        ALLURE_SERVER_ID = 'allure-prod'      // ID сервера из настроек Jenkins
+        ALLURE_SERVER_ID = 'testops'      // ID сервера из настроек Jenkins
         ALLURE_PROJECT_ID = '123'             // ID проекта в Allure TestOps
     }
 
