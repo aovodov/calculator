@@ -6,7 +6,7 @@ pipeline {
             steps {
                 dir('/workspace') {
                     echo 'Starting build stage...'
-                    sh 'mvn clean package'
+                    sh './mvnw clean package'
                     echo 'Build stage completed'
                 }
             }
@@ -16,7 +16,7 @@ pipeline {
             steps {
                 dir('/workspace') {
                     echo 'Starting test stage...'
-                    sh 'mvn test'
+                    sh './mvnw test'
                     echo 'Test stage completed'
                 }
             }
