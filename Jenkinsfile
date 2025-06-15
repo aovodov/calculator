@@ -25,7 +25,8 @@ pipeline {
                     withAllureUpload(
                         serverId: env.ALLURE_SERVER_ID,
                         projectId: env.ALLURE_PROJECT_ID,
-                        results: [[path: 'target/allure-results']]
+                        results: [[path: 'target/allure-results']],
+                        indexExistingFiles: true
                     ) {
                         echo 'Результаты тестов загружены в Allure TestOps'
                     }
