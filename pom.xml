@@ -48,7 +48,7 @@
             <listener>io.qameta.allure.junit4.AllureJunit4</listener>
           </properties>
           <systemPropertyVariables>
-            <listener>io.qameta.allure.junit4.AllureJunit4</listener>
+            <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
           </systemPropertyVariables>
         </configuration>
         <dependencies>
