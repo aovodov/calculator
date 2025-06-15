@@ -7,11 +7,6 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
-            steps {
-                sh './mvnw clean package'
-            }
-        }
         stage('Тестирование') {
             steps {
                 withAllureLaunch(
@@ -31,6 +26,11 @@ pipeline {
                         echo 'Результаты тестов загружены в Allure TestOps'
                     }
                 }
+            }
+        }           
+        stage('Build') {
+            steps {
+                sh './mvnw clean package'
             }
         }
     }
