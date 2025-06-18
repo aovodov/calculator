@@ -3,6 +3,9 @@ package com.gmail.artovod;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import io.qameta.allure.*;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 /**
  * Unit test for simple App.
@@ -67,5 +70,17 @@ public class AppTest
     @Owner("artemovodov")
     public void testDivideByZero() {
         calculator.divide(6.0, 0.0);
+    }
+
+    @Test
+    @Story("Скриншот")
+    @Description("Проверка добавления скриншота")
+    @Severity(SeverityLevel.NORMAL)
+    @Owner("artemovodov")
+    public void testScreenshot() throws Exception {
+        Path pathToScreenshot = Path.of("src/resources/Logo.jpg");
+        try (InputStream is = Files.newInputStream(pathToScreenshot)) {
+            Allure.addAttachment("Скриншот", "image/jpeg", is, ".jpeg");
+        }
     }
 }
