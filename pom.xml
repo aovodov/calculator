@@ -18,9 +18,27 @@
     <maven.compiler.target>11</maven.compiler.target>
     <aspectj.version>1.9.19</aspectj.version>
     <allure.version>2.24.0</allure.version>
+    <junit5.version>5.7.0</junit5.version>
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>${junit5.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>${junit5.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-params</artifactId>
+      <version>${junit5.version}</version>
+    </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -32,6 +50,11 @@
       <artifactId>allure-junit4</artifactId>
       <version>${allure.version}</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-junit5</artifactId>
+      <version>${allure.version}</version>
     </dependency>
   </dependencies>
 

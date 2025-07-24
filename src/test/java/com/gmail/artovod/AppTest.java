@@ -1,8 +1,15 @@
 package com.gmail.artovod;
 
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
+
+import static io.qameta.allure.Allure.parameter;
+import static io.qameta.allure.Allure.step;
 import static org.junit.Assert.*;
 import io.qameta.allure.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -82,5 +89,19 @@ public class AppTest
         try (InputStream is = Files.newInputStream(pathToScreenshot)) {
             Allure.addAttachment("Скриншот", "image/jpeg", is, ".jpeg");
         }
+    }
+
+    @ParameterizedTest(name = "{displayName} [{argumentsWithNames}]")
+    @ValueSource(strings = {"John", "Mike"})
+    @DisplayName("allureParameterizedTest displayName")
+    @Description("allureParameterizedTest description")
+    public void allureParameterizedTest(String name) {
+        parameter("Name", name);
+    }
+
+    @Test
+    public void allureFakeParameterizedTest() {
+        parameter("fakeParam","fakeValue");
+        step("Step inside fake parameterized test");
     }
 }
