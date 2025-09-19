@@ -90,18 +90,4 @@ public class AppTest
             Allure.addAttachment("Скриншот", "image/jpeg", is, ".jpeg");
         }
     }
-
-    @ParameterizedTest(name = "{displayName} [{argumentsWithNames}]")
-    @ValueSource(strings = {"John", "Mike"})
-    @DisplayName("allureParameterizedTest displayName")
-    @Description("allureParameterizedTest description")
-    public void allureParameterizedTest(String name) {
-        parameter("Name", name);
-    }
-
-    @Test
-    public void allureFakeParameterizedTest() {
-        parameter("fakeParam","fakeValue");
-        step("Step inside fake parameterized test");
-    }
 }
