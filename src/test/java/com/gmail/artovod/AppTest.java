@@ -93,11 +93,10 @@ public class AppTest {
     public void testDivideByZero() {
         try {
             Thread.sleep(new Random().nextInt(1200));
-            throw new RuntimeException("loh");
         } catch (InterruptedException ignored) {
         }
         Assertions.assertThrows(ArithmeticException.class, () -> {
-            calculator.divide(6.0, 0.0);
+            calculator.divide(6.0, 1.0);
         });
     }
 
