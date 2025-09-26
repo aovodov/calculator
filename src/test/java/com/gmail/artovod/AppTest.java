@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Assertions;
 import io.qameta.allure.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static io.qameta.allure.Allure.parameter;
 import static io.qameta.allure.Allure.step;
@@ -126,5 +128,21 @@ public class AppTest {
         Assertions.assertThrows(ArithmeticException.class, () -> {
             calculator.divide(6.0, 0.0);
         });
+    }
+
+    @ParameterizedTest(name = "{displayName} [{argumentsWithNames}]")
+    @ValueSource(strings = {"John", "Mike"})
+    @DisplayName("allureParameterizedTest displayName")
+    @Description("allureParameterizedTest description")
+    public void allureParameterizedTest(String name) throws InterruptedException {
+        switch (name) {
+            case "John":
+                Thread.sleep(1500);
+                break;
+            case "Mike":
+                Thread.sleep(2500);
+                break;
+        }
+        parameter("Name", name);
     }
 }
