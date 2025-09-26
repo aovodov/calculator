@@ -89,7 +89,6 @@ public class AppTest {
     @Description("Проверка деления на ноль")
     @Severity(SeverityLevel.BLOCKER)
     @Owner("artemovodov")
-    @AllureId("8613")
     public void testDivideByZero() {
         try {
             Thread.sleep(new Random().nextInt(1200));
@@ -111,5 +110,21 @@ public class AppTest {
         try (InputStream is = Files.newInputStream(pathToScreenshot)) {
             Allure.addAttachment("Скриншот", "image/jpeg", is, ".jpeg");
         }
+    }
+
+    @Test
+    @Story("Деление на ноль")
+    @Description("Проверка деления на ноль")
+    @Severity(SeverityLevel.BLOCKER)
+    @Owner("artemovodov")
+    @AllureId("8613")
+    public void testDivideByZeroNEW() {
+        try {
+            Thread.sleep(new Random().nextInt(1200));
+        } catch (InterruptedException ignored) {
+        }
+        Assertions.assertThrows(ArithmeticException.class, () -> {
+            calculator.divide(6.0, 0.0);
+        });
     }
 }
