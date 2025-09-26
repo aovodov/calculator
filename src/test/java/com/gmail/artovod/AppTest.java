@@ -137,7 +137,7 @@ public class AppTest {
     public void allureParameterizedTest(String name) throws InterruptedException {
         switch (name) {
             case "John":
-                Thread.sleep(1500);
+                Thread.sleep(3000);
                 break;
             case "Mike":
                 Thread.sleep(2500);
