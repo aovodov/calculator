@@ -89,6 +89,7 @@ public class AppTest {
     @Description("Проверка деления на ноль")
     @Severity(SeverityLevel.BLOCKER)
     @Owner("artemovodov")
+    @AllureId("8613")
     public void testDivideByZero() {
         try {
             Thread.sleep(new Random().nextInt(1200));
