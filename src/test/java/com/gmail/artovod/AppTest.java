@@ -93,6 +93,7 @@ public class AppTest {
     public void testDivideByZero() {
         try {
             Thread.sleep(new Random().nextInt(1200));
+            throw new RuntimeException("loh");
         } catch (InterruptedException ignored) {
         }
         Assertions.assertThrows(ArithmeticException.class, () -> {
