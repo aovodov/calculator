@@ -151,7 +151,6 @@ public class AppTest {
     @Test
     @DisplayName("Bug test")
     @Owner("daniil@qameta.io")
-    @Feature("TROLOLO")
     void testFromTestops2() {
         step("step 111");
         step("step 2222");
