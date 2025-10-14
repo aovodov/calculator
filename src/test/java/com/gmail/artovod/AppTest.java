@@ -163,4 +163,20 @@ public class AppTest {
             step("sub step");
         });
     }
+
+    @Test
+    @DisplayName("Bug test")
+    @Owner("daniil@qameta.io")
+    @Feature("Issues bugs")
+    void testFromTestops3() {
+        step("lol");
+        step("kek");
+        step("4eburek", () -> {
+            step("sub step");
+        });
+        step("step sleep 60", () -> {
+            Thread.sleep(60000);
+            step("sub step");
+        });
+    }
 }
