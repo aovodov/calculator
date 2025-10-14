@@ -31,6 +31,7 @@ public class AppTest {
     @Description("Проверка операции сложения")
     @Severity(SeverityLevel.CRITICAL)
     @Owner("artemovodov")
+    @Feature("Issues bug")
     public void testAdd() {
         try {
             Thread.sleep(new Random().nextInt(1200));
@@ -46,6 +47,7 @@ public class AppTest {
     @Description("Проверка операции вычитания")
     @Severity(SeverityLevel.NORMAL)
     @Owner("artemovodov")
+    @Feature("Issues bug")
     public void testSubtract() {
         try {
             Thread.sleep(new Random().nextInt(1200));
@@ -61,6 +63,7 @@ public class AppTest {
     @Description("Проверка операции умножения")
     @Severity(SeverityLevel.NORMAL)
     @Owner("artemovodov")
+    @Feature("Issues bug")
     public void testMultiply() {
         try {
             Thread.sleep(new Random().nextInt(1200));
@@ -76,6 +79,7 @@ public class AppTest {
     @Description("Проверка операции деления")
     @Severity(SeverityLevel.NORMAL)
     @Owner("artemovodov")
+    @Feature("Issues bug")
     public void testDivide() {
         try {
             Thread.sleep(new Random().nextInt(1200));
